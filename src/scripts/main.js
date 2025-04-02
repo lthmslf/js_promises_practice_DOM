@@ -48,9 +48,7 @@ secondPromise
     success.innerText = 'Second promise was resolved';
     document.body.appendChild(success);
   })
-  .catch(() => {
-    throw new Error('Something went wrong on the 2nd promise');
-  });
+  .catch();
 
 const thirdPromise = new Promise((resolve) => {
   let didLeftClick = false;
@@ -83,6 +81,4 @@ thirdPromise
     success.innerText = 'Third promise was resolved';
     document.body.appendChild(success);
   })
-  .catch(() => {
-    throw new Error('Something went wrong on the 3rd promise');
-  });
+  .catch();
