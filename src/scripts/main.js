@@ -39,14 +39,18 @@ const secondPromise = new Promise((resolve) => {
   });
 });
 
-secondPromise.then(() => {
-  const success = document.createElement('div');
+secondPromise
+  .then(() => {
+    const success = document.createElement('div');
 
-  success.classList.add('success');
-  success.dataset.qa = 'notification';
-  success.innerText = 'Second promise was resolved';
-  document.body.appendChild(success);
-});
+    success.classList.add('success');
+    success.dataset.qa = 'notification';
+    success.innerText = 'Second promise was resolved';
+    document.body.appendChild(success);
+  })
+  .catch(() => {
+    throw new Error('Something went wrong on the 2nd promise');
+  });
 
 const thirdPromise = new Promise((resolve) => {
   let didLeftClick = false;
@@ -70,11 +74,15 @@ const thirdPromise = new Promise((resolve) => {
   });
 });
 
-thirdPromise.then(() => {
-  const success = document.createElement('div');
+thirdPromise
+  .then(() => {
+    const success = document.createElement('div');
 
-  success.classList.add('success');
-  success.dataset.qa = 'notification';
-  success.innerText = 'Third promise was resolved';
-  document.body.appendChild(success);
-});
+    success.classList.add('success');
+    success.dataset.qa = 'notification';
+    success.innerText = 'Third promise was resolved';
+    document.body.appendChild(success);
+  })
+  .catch(() => {
+    throw new Error('Something went wrong on the 3rd promise');
+  });
